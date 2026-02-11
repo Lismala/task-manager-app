@@ -22,7 +22,8 @@ A simple and elegant task manager built with vanilla JavaScript.
 3. Start managing your tasks!
 
 ## Screenshots
-(Add screenshots here)
+![Tampilan Light Mode](assets/ss-lightmode.png)
+![Tampilan Dark Mode](assets/ss-darkmode.png)
 
 ## Author
 Lismala
