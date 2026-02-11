@@ -270,3 +270,17 @@ h1 {
         gap: 8px;
     }
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --text-primary: #f7fafc;
+    --text-secondary: #a0aec0;
+    --border: #4a5568;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: var(--accent);
+}
