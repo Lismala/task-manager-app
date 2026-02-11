@@ -67,8 +67,8 @@ function toggleTask(id) {
     }
 }
 
-// Delete Task
-function deleteTask(id) {
+//Delete Task
+function deleteTask(id){
     tasks = tasks.filter(t => t.id !== id);
     saveTasks();
     renderTasks();
@@ -101,5 +101,17 @@ function renderTasks() {
             `;
             taskList.appendChild(li);
         });
+    }
+}
+
+// Get Filtered Tasks
+function getFilteredTasks() {
+    switch (currentFilter) {
+        case 'active':
+            return tasks.filter(t => !t.completed);
+        case 'completed':
+            return tasks.filter(t => t.completed);
+        default:
+            return tasks;
     }
 }
