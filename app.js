@@ -115,3 +115,54 @@ function getFilteredTasks() {
             return tasks;
     }
 }
+
+// Update Statistics
+function updateStats() {
+    const total = tasks.length;
+    const active = tasks.filter(t => !t.completed).length;
+    const completed = tasks.filter(t => t.completed).length;
+    
+    totalTasksEl.textContent = `Total: ${total}`;
+    activeTasksEl.textContent = `Active: ${active}`;
+    completedTasksEl.textContent = `Completed: ${completed}`;
+}
+
+// Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    darkModeToggle.textContent = isDark ? '☀️' : '🌙';
+}
+
+function loadDarkMode() {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.textContent = '☀️';
+    }
+}
+
+// Local Storage
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    const stored = localStorage.getItem('tasks');
+    if (stored) {
+        try {
+            tasks = JSON.parse(stored);
+        } catch (e) {
+            console.error('Error loading tasks:', e);
+            tasks = [];
+        }
+    }
+}
+
+// Utility
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
